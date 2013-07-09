@@ -1,0 +1,33 @@
+<component name="org.nuxeo.metadata.contrib">
+
+  <extension point="mapper" target="org.nuxeo.metadata.FileMetadataService">
+    <mapper id="defaultTikaMapper" class="org.nuxeo.metadata.TikaDefaultMapper" />
+  </extension>
+
+  <extension point="mapping" target="org.nuxeo.metadata.FileMetadataService">
+    <mapping id="tikaXMP" mapper="defaultTikaMapper">
+      <mimeTypes>
+        <mimeType>image/vnd.adobe.photoshop</mimeType>
+        <mimeType>application/vnd.adobe.photoshop</mimeType>
+        <mimeType>application/pdf</mimeType>
+      </mimeTypes>
+      <requirements>
+        <facet>XMP</facet>
+      </requirements>
+      <properties>
+        <propertyItem xpath="xmp:BitsPerSample" metadataName="tiff:BitsPerSample" policy="readonly" />
+        <propertyItem xpath="xmp:ImageWidth" metadataName="tiff:ImageWidth" policy="readonly" />
+        <propertyItem xpath="xmp:ImageLength" metadataName="tiff:ImageLength" policy="readonly" />
+        <propertyItem xpath="xmp:CreatorTool" metadataName="xmp:CreatorTool" policy="readonly" />
+        <propertyItem xpath="xmp:NPages" metadataName="xmpTPg:NPages" policy="readonly" />
+      </properties>
+    </mapping>
+  </extension>
+  
+  <extension point="docMapping" target="org.nuxeo.metadata.FileMetadataService">
+    <doc docType="File">
+      <mappingId>tikaXMP</mappingId>
+    </doc>
+  </extension>
+
+</component>

@@ -1,0 +1,13 @@
+<component name="org.nuxeo.metadata.listener.contrib.MetadataListener">
+
+  <extension target="org.nuxeo.ecm.core.event.EventServiceComponent"
+    point="listener">
+
+    <listener name="metadatalistener" async="false" postCommit="false"
+      class="org.nuxeo.metadata.MetadataListener" order="140">
+      <event>aboutToCreate</event>
+      <event>beforeDocumentModification</event>
+    </listener>
+  </extension>
+
+</component>

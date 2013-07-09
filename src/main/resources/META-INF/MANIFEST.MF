@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-Vendor: Nuxeo
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: .
+Bundle-Version: 5.7-I20120918_1109
+Bundle-Name: nuxeo-platform-filemanager-metadata
+Bundle-ManifestVersion: 2
+Nuxeo-Component: OSGI-INF/extensions/org.nuxeo.metadata.FileMetadataSe
+ rviceImpl.xml,OSGI-INF/extensions/org.nuxeo.metadata.MetadataListener
+ .xml,OSGI-INF/metadata-core-contrib.xml,OSGI-INF/file-metadata-contri
+ b.xml,OSGI-INF/exiftools-commandline-contrib.xml
+Bundle-SymbolicName: nuxeo-platform-filemanager-metadata
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+

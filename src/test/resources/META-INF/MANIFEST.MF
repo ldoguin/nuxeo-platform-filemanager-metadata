@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-Vendor: Nuxeo
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: .
+Bundle-Version: 5.7-I20120918_1109
+Bundle-Name: nuxeo-platform-filemanager-metadata-test
+Bundle-SymbolicName: nuxeo-platform-filemanager-metadata-test
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+

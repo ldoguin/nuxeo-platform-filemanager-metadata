@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<component name="org.nuxeo.metadata.FileMetadataService" version="1.0">
+
+  <service>
+    <provide
+      interface="org.nuxeo.metadata.FileMetadataService" />
+  </service>
+
+  <implementation class="org.nuxeo.metadata.FileMetadataServiceImpl" />
+
+  <extension-point name="mapper">
+    <documentation>
+      @author Laurent Doguin (ldoguin@nuxeo.com)
+
+    </documentation>
+
+    <object
+      class="org.nuxeo.metadata.MetadataMapperDescriptor" />
+  </extension-point>
+
+  <extension-point name="mapping">
+    <documentation>
+      @author Laurent Doguin (ldoguin@nuxeo.com)
+
+    </documentation>
+
+    <object
+      class="org.nuxeo.metadata.MetadataMappingDescriptor" />
+  </extension-point>
+
+  <extension-point name="docMapping">
+    <documentation>
+      @author Laurent Doguin (ldoguin@nuxeo.com)
+
+    </documentation>
+
+    <object
+      class="org.nuxeo.metadata.DocMetadataMappingDescriptor" />
+  </extension-point>
+
+</component>

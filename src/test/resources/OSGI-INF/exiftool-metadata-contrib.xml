@@ -1,0 +1,40 @@
+<component name="org.nuxeo.metadata.exiftool.test.contrib">
+
+  <extension point="mapper" target="org.nuxeo.metadata.FileMetadataService">
+    <mapper id="exifToolMapper" class="org.nuxeo.metadata.ExifToolsMapper" />
+  </extension>
+
+  <extension point="mapping" target="org.nuxeo.metadata.FileMetadataService">
+    <mapping id="exifToolXMP" mapper="exifToolMapper">
+      <mimeTypes>
+        <mimeType>image/vnd.adobe.photoshop</mimeType>
+        <mimeType>application/vnd.adobe.photoshop</mimeType>
+        <mimeType>application/pdf</mimeType>
+      </mimeTypes>
+      <requirements>
+        <facet>XMP</facet>
+      </requirements>
+      <properties>
+        <propertyItem xpath="dc:title" metadataName="Title" policy="sync"/>
+        <propertyItem xpath="xmp:BitsPerSample" metadataName="BitDepth" policy="readonly" />
+        <propertyItem xpath="xmp:ImageWidth" metadataName="ImageWidth" policy="readonly" />
+        <propertyItem xpath="xmp:ImageLength" metadataName="ImageHeight" policy="readonly" />
+        <propertyItem xpath="xmp:CreatorTool" metadataName="CreatorTool" policy="readonly" >
+          <fallback>
+            <metadata>SomethingThatDontExistForSure</metadata>
+            <metadata>Creator</metadata>
+            <metadata>Software</metadata>
+          </fallback>
+        </propertyItem>
+        <propertyItem xpath="xmp:NPages" metadataName="PageCount" policy="readonly" />
+      </properties>
+    </mapping>
+  </extension>
+  
+  <extension point="docMapping" target="org.nuxeo.metadata.FileMetadataService">
+    <doc docType="File">
+      <mappingId>exifToolXMP</mappingId>
+    </doc>
+  </extension>
+
+</component>

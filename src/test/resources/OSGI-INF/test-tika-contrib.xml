@@ -1,0 +1,63 @@
+<component name="org.nuxeo.metadata.test.contrib">
+
+  <extension point="mapper" target="org.nuxeo.metadata.FileMetadataService">
+    <mapper id="defaultTikaMapper" class="org.nuxeo.metadata.TikaDefaultMapper" />
+    <mapper id="testTikaMapper" class="org.nuxeo.metadata.test.TestTikaDefaultMapper" />
+  </extension>
+
+  <extension point="mapping" target="org.nuxeo.metadata.FileMetadataService">
+    <mapping id="tikaPDF" mapper="defaultTikaMapper">
+      <mimeTypes>
+        <mimeType>application/pdf</mimeType>
+        <mimeType>application/x-pdf</mimeType>
+      </mimeTypes>
+      <requirements>
+        <schema>dublincore</schema>
+        <facet>xmp</facet>
+      </requirements>
+      <properties>
+        <propertyItem xpath="xmp:pagecount" metadataName="pagecount" policy="readonly" />
+        <propertyItem xpath="dc:title" metadataName="title" policy="sync" />
+      </properties>
+    </mapping>
+    <mapping id="tikaVideo" mimeType="video/mpeg" mapper="defaultTikaMapper">
+      <mimeTypes>
+        <mimeType>video/quicktime</mimeType>
+        <mimeType>video/mp4</mimeType>
+        <mimeType>video/mpeg</mimeType>
+      </mimeTypes>
+      <requirements>
+        <schema>dublincore</schema>
+        <facet>xmp</facet>
+      </requirements>
+      <properties>
+        <propertyItem xpath="xmp:pagecount" metadataName="pagecount" policy="readonly" />
+        <propertyItem xpath="dc:title" metadataName="title" policy="sync" />
+      </properties>
+    </mapping>
+  </extension>
+  
+  <extension point="docMapping" target="org.nuxeo.metadata.FileMetadataService">
+
+    <doc docType="File2">
+      <mapping nxpath="files:files/item[0]/file" mapper="defaultTikaMapper">
+        <mimeTypes>
+          <mimeType>image/png</mimeType>
+        </mimeTypes>
+        <requirements>
+          <schema>dublincore</schema>
+          <facet>xmp</facet>
+        </requirements>
+        <properties>
+          <propertyItem xpath="dc:title" metadataName="title" policy="sync" />
+        </properties>
+      </mapping>
+  </doc>
+
+  <doc docType="File">
+      <mappingId>tikaPDF</mappingId>
+      <mappingId>tikaVideo</mappingId>
+  </doc>
+  </extension>
+
+</component>

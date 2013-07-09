@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<xs:schema targetNamespace="http://www.nuxeo.org/ecm/schemas/files/"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:nxs="http://www.nuxeo.org/ecm/schemas/files/">
+
+  <xs:element name="by_line" type="xs:string" />
+  <xs:element name="prg_ID" type="xs:string" />
+  <xs:element name="cmd_ln" type="xs:string" />
+  <xs:element name="history" type="xs:string" />
+  <xs:element name="table_id" type="xs:string" />
+  <xs:element name="institution" type="xs:string" />
+  <xs:element name="source" type="xs:string" />
+  <xs:element name="contact" type="xs:string" />
+  <xs:element name="project_id" type="xs:string" />
+  <xs:element name="Conventions" type="xs:string" />
+  <xs:element name="references" type="xs:string" />
+  <xs:element name="acknowledgement" type="xs:string" />
+  <xs:element name="realization" type="xs:string" />
+  <xs:element name="experiment_id" type="xs:string" />
+  <xs:element name="comment" type="xs:string" />
+  <xs:element name="model_name_english" type="xs:string" />
+ 
+
+</xs:schema>
